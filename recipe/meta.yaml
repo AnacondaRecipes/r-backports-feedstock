@@ -10,8 +10,8 @@ package:
 source:
   fn: backports_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/backports_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/backports/backports_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/backports_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/backports/backports_{{ version }}.tar.gz
   sha256: e85b93675c6703e1da790dce1f8fb61f27b87e92722c7f0909273ed5074cb456
 
 
