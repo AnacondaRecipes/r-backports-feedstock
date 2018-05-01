@@ -14,22 +14,15 @@ source:
     - {{ cran_mirror }}/src/contrib/Archive/backports/backports_{{ version }}.tar.gz
   sha256: e85b93675c6703e1da790dce1f8fb61f27b87e92722c7f0909273ed5074cb456
 
-
-  # patches:
-   # List any patch files here
-   # - fix.patch
-
 build:
   merge_build_host: True  # [win]
   # If this is a new build for the same version, increment the build number.
   number: 0
 
-
   # This is required to make R link correctly on Linux.
   rpaths:
     - lib/R/lib/
     - lib/
-
 
 requirements:
   build:
