@@ -1,4 +1,4 @@
-{% set version = '1.1.2' %}
+{% set version = '1.1.4' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/backports_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/backports/backports_{{ version }}.tar.gz
-  sha256: e85b93675c6703e1da790dce1f8fb61f27b87e92722c7f0909273ed5074cb456
+  sha256: ee4b5efef22fa7ef27d7983ffcd31db52f81e1fbb7189c6e89ee09b69349ff03
 
 build:
   merge_build_host: True  # [win]
@@ -53,14 +53,16 @@ test:
     # Put any additional test requirements here.
 
 about:
-  home: https://github.com/mllg/backports
+  home: https://github.com/r-lib/backports
   license: GPL-2
-  summary: Implementations of functions which have been introduced in R since version 3.0.0.
-    The backports are conditionally exported which results in R resolving the function
-    names to the version shipped with R (if available) and uses the implemented backports
-    as fallback. This way package developers can make use of the new functions without
-    worrying about the minimum required R version.
+  summary: ' Functions introduced or changed since R v3.0.0 are re-implemented in this package.
+    The backports are conditionally exported in order to let R resolve the function
+    name to either the implemented backport, or the respective base version, if available.
+    Package developers can make use of new functions or arguments by selectively importing
+    specific backports to support older installations.'
+
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
@@ -73,22 +75,23 @@ extra:
 # Package: backports
 # Type: Package
 # Title: Reimplementations of Functions Introduced Since R-3.0.0
-# Version: 1.1.2
-# Authors@R: c(person("Michel", "Lang", NULL, "michellang@gmail.com", role = c("cre", "aut"), comment = c(ORCID = "0000-0001-9754-0393")))
+# Version: 1.1.4
+# Authors@R: c( person("Michel", "Lang", NULL, "michellang@gmail.com", role = c("cre", "aut"), comment = c(ORCID = "0000-0001-9754-0393")), person("R Core Team", role = "aut"))
 # Maintainer: Michel Lang <michellang@gmail.com>
-# Description: Implementations of functions which have been introduced in R since version 3.0.0. The backports are conditionally exported which results in R resolving the function names to the version shipped with R (if available) and uses the implemented backports as fallback. This way package developers can make use of the new functions without worrying about the minimum required R version.
-# URL: https://github.com/mllg/backports
-# BugReports: https://github.com/mllg/backports/issues
+# Description:  Functions introduced or changed since R v3.0.0 are re-implemented in this package. The backports are conditionally exported in order to let R resolve the function name to either the implemented backport, or the respective base version, if available. Package developers can make use of new functions or arguments by selectively importing specific backports to support older installations.
+# URL: https://github.com/r-lib/backports
+# BugReports: https://github.com/r-lib/backports/issues
 # License: GPL-2
 # NeedsCompilation: yes
 # ByteCompile: yes
 # Depends: R (>= 3.0.0)
 # Imports: utils
-# RoxygenNote: 6.0.1
-# Packaged: 2017-12-13 12:28:04 UTC; michel
-# Author: Michel Lang [cre, aut] (0000-0001-9754-0393)
+# Encoding: UTF-8
+# RoxygenNote: 6.1.1
+# Packaged: 2019-04-10 14:08:23 UTC; lang
+# Author: Michel Lang [cre, aut] (<https://orcid.org/0000-0001-9754-0393>), R Core Team [aut]
 # Repository: CRAN
-# Date/Publication: 2017-12-13 17:33:42 UTC
+# Date/Publication: 2019-04-10 14:55:26 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
